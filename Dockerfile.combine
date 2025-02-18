@@ -1,4 +1,4 @@
-FROM node:latest AS base
+FROM node:bookworm AS base
 
 WORKDIR /app
 
@@ -22,7 +22,7 @@ RUN npm run build
 
 
 
-FROM node:latest AS production
+FROM node:bookworm AS production
 
 WORKDIR /app
 

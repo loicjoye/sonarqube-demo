@@ -1,4 +1,4 @@
-FROM node:latest AS build
+FROM node:bookworm AS build
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ COPY ./ ./
 RUN npm run build
 
 
-FROM node:latest AS server
+FROM node:bookworm AS server
 
 WORKDIR /app
 
