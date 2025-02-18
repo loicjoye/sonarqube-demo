@@ -1,0 +1,15 @@
+---
+services:
+  sonarqube:
+    image: sonarsource/sonar-scanner-cli:latest
+
+    container_name: sonarqube
+    environment:
+      # - URL=https://${SONAR_HOST_URL}
+      - URL=https://sonarcloud.io/
+    volumes:
+      # - ${PROJECT_BASEDIR}:/usr/src
+      - .:/usr/src
+    # ports:
+    #   - 8096:8096
+
