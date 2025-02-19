@@ -17,7 +17,7 @@ jobs:
         uses: aquasecurity/trivy-action@0.29.0
         with:
           image-ref: 'docker.io/loic79/nest-app:${{ github.sha }}'
-          format: 'table'
+          format: 'sarif'
         #   exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
