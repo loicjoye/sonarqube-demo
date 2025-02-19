@@ -1,15 +1,34 @@
 ---
 services:
   sonarqube:
-    image: sonarsource/sonar-scanner-cli:latest
-
+    image: sonarqube:latest
     container_name: sonarqube
-    environment:
-      # - URL=https://${SONAR_HOST_URL}
-      - URL=https://sonarcloud.io/
     volumes:
-      # - ${PROJECT_BASEDIR}:/usr/src
-      - .:/usr/src
-    # ports:
-    #   - 8096:8096
+      - ./data:/opt/sonarqube/data
+      - ./logs:/opt/sonarqube/logs
+      - ./extensions:/opt/sonarqube/extensions            
+    ports:
+      - 9000:9000
+#     networks:
+#       - sonarnet
+#     healthcheck:
+#       test: ["CMD-SHELL", "curl", "http://localhost:9000/sessions/new?return_to=%2Fprojects", "||", "exit", "1"]
+#       interval: 20s
+#       timeout: 30s
+#       retries: 5
+#       start_period: 30s
+  
+#   sonar-scan:
+#     image: sonarsource/sonar-scanner-cli:latest
+#     container_name: sonar-scanner-cli
+#     volumes:
+#       - ./sonar-data:/usr/src
+#     networks:
+#       - sonarnet
+#     depends_on:
+#       sonarqube:
+#         condition: service_healthy
 
+# networks:
+#   sonarnet:
+#     driver: bridge

@@ -1,0 +1,1 @@
+docker run -it --rm --network host sonarsource/sonar-scanner-cli -D"sonar.projectKey=Dockerfiles-demo" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_74005bc5b99ebd2d65774617c8f150d2b54c878d"
